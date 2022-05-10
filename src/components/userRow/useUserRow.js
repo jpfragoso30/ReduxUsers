@@ -16,7 +16,7 @@ const useUserRow = (userId) => {
     const handleDeleteUser = () => dispatch(deleteUser({ id: userId }));
 
     const triggerUserEdit = () => {
-        setUserEdit(user.name);
+        setUserEdit(user?.name || '');
         setIsEditing(true);
     };
 

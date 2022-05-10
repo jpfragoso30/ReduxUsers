@@ -60,50 +60,52 @@ const UserRow = ({ userId }) => {
     } = useUserRow(userId);
 
     return (
-        <div className={classes.row}>
-            {isEditing ? (
-                <>
-                    <input
-                        type='text'
-                        value={userEdit}
-                        onChange={handleUserEdit}
-                        className={classes.input}
-                    />
-                    <button
-                        type='button'
-                        onClick={acceptEdit}
-                        className={classes.buttonEdit}
-                    >
-                        Aceptar
-                    </button>
-                    <button
-                        type='button'
-                        onClick={cancelEdit}
-                        className={classes.buttonCancel}
-                    >
-                        Cancelar
-                    </button>
-                </>
-            ) : (
-                <>
-                    <span className={classes.name}>{user.name}</span>
-                    <button
-                        type='button'
-                        onClick={triggerUserEdit}
-                        className={classes.buttonEdit}
-                    >
-                        Editar
-                    </button>
-                </>
-            )}
-            <button
-                type='button'
-                onClick={handleDeleteUser}
-                className={classes.buttonDelete}
-            >
-                x
-            </button>
-        </div>
+        user && (
+            <div className={classes.row}>
+                {isEditing ? (
+                    <>
+                        <input
+                            type='text'
+                            value={userEdit}
+                            onChange={handleUserEdit}
+                            className={classes.input}
+                        />
+                        <button
+                            type='button'
+                            onClick={acceptEdit}
+                            className={classes.buttonEdit}
+                        >
+                            Aceptar
+                        </button>
+                        <button
+                            type='button'
+                            onClick={cancelEdit}
+                            className={classes.buttonCancel}
+                        >
+                            Cancelar
+                        </button>
+                    </>
+                ) : (
+                    <>
+                        <span className={classes.name}>{user?.name}</span>
+                        <button
+                            type='button'
+                            onClick={triggerUserEdit}
+                            className={classes.buttonEdit}
+                        >
+                            Editar
+                        </button>
+                    </>
+                )}
+                <button
+                    type='button'
+                    onClick={handleDeleteUser}
+                    className={classes.buttonDelete}
+                >
+                    x
+                </button>
+            </div>
+        )
     );
 };
 

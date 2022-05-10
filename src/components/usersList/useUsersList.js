@@ -26,11 +26,11 @@ const useUsersList = () => {
     useEffect(() => {
         if (sortAscending) {
             setSortedUsers(
-                [...users].sort((a, b) => a.name.localeCompare(b.name))
+                [...users].sort((a, b) => a?.name.localeCompare(b?.name || ''))
             );
         } else {
             setSortedUsers(
-                [...users].sort((a, b) => b.name.localeCompare(a.name))
+                [...users].sort((a, b) => b?.name.localeCompare(a?.name || ''))
             );
         }
     }, [users, sortAscending]);
